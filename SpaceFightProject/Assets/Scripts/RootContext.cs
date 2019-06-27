@@ -10,15 +10,22 @@ namespace SpaceFightProject
     public class RootContext : MVCSContext
     {
         public RootContext(MonoBehaviour contextView, bool autoMap) : base(contextView, autoMap) { }
+        protected override void addCoreComponents()
+        {
+            base.addCoreComponents();
 
+            injectionBinder.Bind<PreferencesModel>().ToSingleton();
+        }
         protected override void mapBindings()
         {
             commandBinder.Bind(ContextEvent.START).To<StartAppCommand>();
 
             commandBinder.Bind(GlobalEvents.E_LoadView).To<LoadViewCommand>();
-
-            mediationBinder.BindView<MainMenuView>().ToMediator<BaseMediator>();
+            
+            mediationBinder.BindView<MainMenuView>().ToMediator<MainMenuMediator>();
         }
     }
+    //Mediator classes
+    public class MainMenuMediator : BaseMediator<MainMenuView> { };
 }
 

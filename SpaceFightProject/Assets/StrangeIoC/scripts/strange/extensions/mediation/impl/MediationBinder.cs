@@ -114,7 +114,6 @@ namespace strange.extensions.mediation.impl
 		virtual protected void mapView(IView view, IMediationBinding binding)
 		{
 			Type viewType = view.GetType();
-
 			if (bindings.ContainsKey(viewType))
 			{
 				object[] values = binding.value as object[];

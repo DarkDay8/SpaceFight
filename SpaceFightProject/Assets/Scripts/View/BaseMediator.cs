@@ -6,16 +6,15 @@ using System.Collections;
 using strange.extensions.mediation.impl;
 
 namespace SpaceFightProject
-{
-    
-    public class BaseMediator : Mediator
+{   
+    public class BaseMediator<T> : Mediator
+        where T : View, IMyView
     {
+        //[Inject(ContextKeys.CONTEXT_DISPATCHER)]
+        //public IEventDispatcher dispatcher { get; set; }
+
         [Inject]
-        public IMyWiew View { get; set; }
-
-        [Inject(ContextKeys.CONTEXT_DISPATCHER)]
-        public IEventDispatcher dispatcher { get; set; }
-
+        public T View { get; set; }
         public override void PreRegister()
         {
 

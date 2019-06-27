@@ -15,7 +15,7 @@ namespace SpaceFightProject
         public override void Execute()
         {
             Debug.Log("Start !!!");
-            dispatcher.Dispatch(GlobalEvents.E_LoadView, "pref1");
+            dispatcher.Dispatch(GlobalEvents.E_LoadView, "MainMenu");
         }
     }
 }
