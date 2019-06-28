@@ -12,15 +12,22 @@ namespace SpaceFightProject
 {
     public class MainGameFieldView : View, IMyView
     {
-        [Inject]
-        public PreferencesModel PreferencesModel { get; set; }
         [Inject(ContextKeys.CONTEXT_DISPATCHER)]
         public IEventDispatcher dispatcher { get; set; }
+        [Inject]
+        public GameModel GameModel { get; set; }
+        [Inject]
+        public PreferencesModel PreferencesModel { get; set; }
+
+        public Transform gameField;
 
         public void LoadView()
         {
+            Debug.Log("Start Load");
             SetBacePreferences();
-      
+            GameModel.gameField = gameField;
+            dispatcher.Dispatch(GlobalEvents.E_InstantiatePlayer);
+            Debug.Log("End Load");
         }
 
         private void SetBacePreferences()

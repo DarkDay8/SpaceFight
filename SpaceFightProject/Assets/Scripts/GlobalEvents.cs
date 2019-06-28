@@ -6,8 +6,8 @@ public enum GlobalEvents
 {
     E_LoadView,
     E_RemoveView,
+    E_InstantiatePlayer,
 
-    E_MainMenu,
     E_Settings,
     E_StartGame,
     E_Exit

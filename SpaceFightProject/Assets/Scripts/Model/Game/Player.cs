@@ -9,8 +9,8 @@ namespace SpaceFightProject
         public int Score { get; set; }
 
         public Player() { }
-        public Player(ref GameObject obj) : base(ref obj) { }
-        public Player(ref GameObject obj, float maxHp) : base(ref obj, maxHp) { }
+        public Player(Transform obj) : base(obj) { }
+        public Player(Transform obj, float maxHp) : base(obj, maxHp) { }
 
     }
 }

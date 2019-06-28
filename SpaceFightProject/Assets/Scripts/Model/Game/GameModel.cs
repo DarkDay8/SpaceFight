@@ -6,6 +6,7 @@ namespace SpaceFightProject
 {
     public class GameModel
     {
+        public Transform gameField;
         public Player player;
         public List<BaseGameObject> enemyList;
 

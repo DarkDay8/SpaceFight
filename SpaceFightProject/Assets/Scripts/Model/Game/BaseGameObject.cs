@@ -6,7 +6,7 @@ namespace SpaceFightProject
 {
     public class BaseGameObject
     {
-        public GameObject Object;
+        public Transform Object;
         public float MaxHp { get; set; }
         public float CurrentHp { get; set; }
 
@@ -21,11 +21,11 @@ namespace SpaceFightProject
             return false;
         }
         public BaseGameObject() { }
-        public BaseGameObject(ref GameObject obj)
+        public BaseGameObject(Transform obj)
         {
             Object = obj;
         }
-        public BaseGameObject(ref GameObject obj, float maxHp)
+        public BaseGameObject(Transform obj, float maxHp)
         {
             Object = obj;
             CurrentHp = MaxHp = maxHp;
