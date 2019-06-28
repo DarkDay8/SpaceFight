@@ -15,6 +15,7 @@ namespace SpaceFightProject
             base.addCoreComponents();
 
             injectionBinder.Bind<PreferencesModel>().ToSingleton();
+            injectionBinder.Bind<GameModel>().ToSingleton();
         }
         protected override void mapBindings()
         {
@@ -28,6 +29,7 @@ namespace SpaceFightProject
 
         }
     }
+    //We can't add template class in MonoBehaviour 
     //Mediator classes
     public class MainMenuMediator : BaseMediator<MainMenuView> { };
     public class MainGameFieldMediator : BaseMediator<MainGameFieldView> { };
