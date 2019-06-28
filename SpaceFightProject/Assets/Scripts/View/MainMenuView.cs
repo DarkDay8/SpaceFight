@@ -1,4 +1,6 @@
-﻿using strange.extensions.mediation.impl;
+﻿using strange.extensions.context.api;
+using strange.extensions.dispatcher.eventdispatcher.api;
+using strange.extensions.mediation.impl;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -12,6 +14,9 @@ namespace SpaceFightProject
     {
         [Inject]
         public PreferencesModel PreferencesModel { get; set; }
+        [Inject(ContextKeys.CONTEXT_DISPATCHER)]
+        public IEventDispatcher dispatcher { get; set; }
+
 
         public Button start;
         public Button option;
@@ -59,7 +64,8 @@ namespace SpaceFightProject
 
         private void StartGame()
         {
-            throw new NotImplementedException();
+            dispatcher.Dispatch(GlobalEvents.E_RemoveView, "MainMenu");
+            dispatcher.Dispatch(GlobalEvents.E_LoadView, "MainGameField");
         }
 
         private void ChoiceLocalization()

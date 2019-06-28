@@ -21,11 +21,15 @@ namespace SpaceFightProject
             commandBinder.Bind(ContextEvent.START).To<StartAppCommand>();
 
             commandBinder.Bind(GlobalEvents.E_LoadView).To<LoadViewCommand>();
+            commandBinder.Bind(GlobalEvents.E_RemoveView).To<RemoveViewCommand>();
             
             mediationBinder.BindView<MainMenuView>().ToMediator<MainMenuMediator>();
+            mediationBinder.BindView<MainGameFieldView>().ToMediator<MainGameFieldMediator>();
+
         }
     }
     //Mediator classes
     public class MainMenuMediator : BaseMediator<MainMenuView> { };
+    public class MainGameFieldMediator : BaseMediator<MainGameFieldView> { };
 }
 

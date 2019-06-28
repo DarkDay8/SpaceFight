@@ -5,6 +5,7 @@ using UnityEngine;
 public enum GlobalEvents
 {
     E_LoadView,
+    E_RemoveView,
 
     E_MainMenu,
     E_Settings,
