@@ -9,6 +9,7 @@ namespace SpaceFightProject
         public Transform Object;
         public float MaxHp { get; set; }
         public float CurrentHp { get; set; }
+        public float Speed { get; set; }
 
         public bool SetDamageOrDestroy(float damage)
         {
@@ -30,6 +31,11 @@ namespace SpaceFightProject
             Object = obj;
             CurrentHp = MaxHp = maxHp;
         }
-
+        public BaseGameObject(Transform obj, float maxHp, float speed)
+        {
+            Object = obj;
+            CurrentHp = MaxHp = maxHp;
+            Speed = speed;
+        }
     }
 }

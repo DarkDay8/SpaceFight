@@ -23,11 +23,10 @@ namespace SpaceFightProject
 
         public void LoadView()
         {
-            Debug.Log("Start Load");
             SetBacePreferences();
             GameModel.gameField = gameField;
             dispatcher.Dispatch(GlobalEvents.E_InstantiatePlayer);
-            Debug.Log("End Load");
+            dispatcher.Dispatch(GlobalEvents.E_StartGame);
         }
 
         private void SetBacePreferences()

@@ -27,8 +27,7 @@ namespace SpaceFightProject
                     GameObject clone = GameObject.Instantiate(
                         prefab, Vector3.zero, Quaternion.Euler(0,0,180), GameModel.gameField) as GameObject;
                     clone.transform.localPosition = new Vector3(0,-350,0);
-                    clone.name = "Player";
-                    GameModel.player = new Player(clone.transform, 10);
+                    GameModel.player = new Player(clone.transform, 10, 500);
                 }
             }
             else
@@ -36,7 +35,6 @@ namespace SpaceFightProject
                 GameObject clone = GameObject.Instantiate(GameModel.player.Object.gameObject,
                         Vector3.zero, Quaternion.Euler(0, 0, 180), GameModel.gameField) as GameObject;
                 clone.transform.position = new Vector3(0, -350, 0);
-                clone.name = "Player";
             }
         }
     }

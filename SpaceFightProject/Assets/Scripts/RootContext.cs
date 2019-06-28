@@ -24,6 +24,7 @@ namespace SpaceFightProject
             commandBinder.Bind(GlobalEvents.E_LoadView).To<LoadViewCommand>();
             commandBinder.Bind(GlobalEvents.E_RemoveView).To<RemoveViewCommand>();
             commandBinder.Bind(GlobalEvents.E_InstantiatePlayer).To<InstantiatePlayerCommand>();
+            commandBinder.Bind(GlobalEvents.E_StartGame).To<StartGameCommand>();
             
             mediationBinder.BindView<MainMenuView>().ToMediator<MainMenuMediator>();
             mediationBinder.BindView<MainGameFieldView>().ToMediator<MainGameFieldMediator>();
