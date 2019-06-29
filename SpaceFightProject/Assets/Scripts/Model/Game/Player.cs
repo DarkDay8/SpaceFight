@@ -6,13 +6,13 @@ namespace SpaceFightProject
 {
     public class Player : BaseGameObject
     {
-        public int Score { get; set; }
         private PlayerMoveController moveController;
 
-        public Player() { }
-        public Player(Transform obj) : base(obj) { }
-        public Player(Transform obj, float maxHp) : base(obj, maxHp) { }
-        public Player(Transform obj, float maxHp, float speed) : base(obj, maxHp, speed) { }
+        public Player(GameObjectView obj) : base(obj) { }
+        public Player(GameObjectView obj, float maxHp) : base(obj, maxHp) { }
+        public Player(GameObjectView obj, float maxHp, float speed) : base(obj, maxHp, speed) { }
+        public Player(GameObjectView obj, float maxHp, float speed, float pover) 
+            : base(obj, maxHp, speed, pover) { }
 
         public Player SetMoveController()
         {

@@ -28,6 +28,7 @@ namespace SpaceFightProject
             
             mediationBinder.BindView<MainMenuView>().ToMediator<MainMenuMediator>();
             mediationBinder.BindView<MainGameFieldView>().ToMediator<MainGameFieldMediator>();
+            mediationBinder.BindView<GameObjectView>().ToMediator<GameObjectMediator>();
 
         }
     }
@@ -35,5 +36,6 @@ namespace SpaceFightProject
     //Mediator classes
     public class MainMenuMediator : BaseMediator<MainMenuView> { };
     public class MainGameFieldMediator : BaseMediator<MainGameFieldView> { };
+    public class GameObjectMediator : BaseMediator<GameObjectView> { };
 }
 

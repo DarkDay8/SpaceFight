@@ -12,6 +12,8 @@ namespace SpaceFightProject
         public Player player;
         public List<BaseGameObject> enemyList;
 
+        public int Score { get; set; }
+
         public void StartGame()
         {
             GameController = new GameController(this);

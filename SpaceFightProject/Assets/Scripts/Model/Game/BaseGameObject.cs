@@ -6,36 +6,36 @@ namespace SpaceFightProject
 {
     public class BaseGameObject
     {
-        public Transform Object;
+        public GameObjectView Object;
         public float MaxHp { get; set; }
         public float CurrentHp { get; set; }
         public float Speed { get; set; }
+        public float Pover { get; set; }
 
-        public bool SetDamageOrDestroy(float damage)
+        public bool SetDamage(float damage)
         {
             CurrentHp -= damage;
-            if (CurrentHp <= 0)
-            {
-                GameObject.Destroy(Object);
-                return true;
-            }
-            return false;
+            return CurrentHp <= 0 ? true : false;
         }
-        public BaseGameObject() { }
-        public BaseGameObject(Transform obj)
+
+        public BaseGameObject(GameObjectView obj)
         {
             Object = obj;
+            obj.setDamage = SetDamage;
+            obj.damagePover = () => { return Pover; };
         }
-        public BaseGameObject(Transform obj, float maxHp)
+        public BaseGameObject(GameObjectView obj, float maxHp) : this(obj)
         {
-            Object = obj;
             CurrentHp = MaxHp = maxHp;
         }
-        public BaseGameObject(Transform obj, float maxHp, float speed)
+        public BaseGameObject(GameObjectView obj, float maxHp, float speed) : this(obj, maxHp)
         {
-            Object = obj;
-            CurrentHp = MaxHp = maxHp;
             Speed = speed;
+        }
+        public BaseGameObject(GameObjectView obj, float maxHp, float speed, float pover) 
+            : this(obj, maxHp, speed)
+        {
+            Pover = pover;
         }
     }
 }

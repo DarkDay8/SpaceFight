@@ -10,7 +10,7 @@ namespace SpaceFightProject
     public class GameController
     {
         private GameModel gameModel;
-        private Rigidbody rb;
+        //private Rigidbody rb;
         private Timer timer;
 
         public GameController(GameModel game)
@@ -20,8 +20,7 @@ namespace SpaceFightProject
 
         public void StartGame()
         {
-            TimerCallback tm = new TimerCallback(timer_Tick);
-            timer = new Timer(timer_Tick, null, 0, 100);
+
         }
 
         private void timer_Tick(object state)
