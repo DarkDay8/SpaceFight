@@ -8,11 +8,23 @@ namespace SpaceFightProject
     {
         private PlayerMoveController moveController;
 
-        public Player(GameObjectView obj) : base(obj) { }
-        public Player(GameObjectView obj, float maxHp) : base(obj, maxHp) { }
-        public Player(GameObjectView obj, float maxHp, float speed) : base(obj, maxHp, speed) { }
+        public Player(GameObjectView obj) : base(obj)
+        {
+            Fraction = Fractions.Player;
+        }
+        public Player(GameObjectView obj, float maxHp) : base(obj, maxHp)
+        {
+            Fraction = Fractions.Player;
+        }         
+        public Player(GameObjectView obj, float maxHp, float speed) : base(obj, maxHp, speed)
+        {
+            Fraction = Fractions.Player;
+        }
         public Player(GameObjectView obj, float maxHp, float speed, float pover) 
-            : base(obj, maxHp, speed, pover) { }
+            : base(obj, maxHp, speed, pover)
+        {
+            Fraction = Fractions.Player;
+        }
 
         public Player SetMoveController()
         {

@@ -8,14 +8,14 @@ namespace SpaceFightProject
 {
     public class GameObjectView : View, IMyView
     {
-        public delegate bool SetDamageDelegate(float damage);
-        public SetDamageDelegate setDamage;
+        public delegate bool GetDamageDelegate(float damage);
+        public GetDamageDelegate getDamage;
 
         public delegate void DestroyIt();
         public DestroyIt destroyIt;
 
-        public delegate float DamagePover();
-        public DamagePover damagePover;
+        public float damagePover = 0;
+        public Fractions fraction = Fractions.Minor;
 
         public void LoadView()
         {
@@ -28,11 +28,18 @@ namespace SpaceFightProject
             GameObject.Destroy(gameObject);
         }
 
-        public void SetDamage(float damage)
+        public void GetDamage(float damage)
         {
-            if (setDamage(damage))
+            if (getDamage(damage))
                 destroyIt();
         }
 
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            GameObjectView TriggerGameObjectView = collision.GetComponent<GameObjectView>();
+
+            if (TriggerGameObjectView?.fraction != fraction)
+                GetDamage(TriggerGameObjectView.damagePover);
+        }
     }
 }
