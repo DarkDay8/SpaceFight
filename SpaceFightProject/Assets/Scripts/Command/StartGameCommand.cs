@@ -13,7 +13,7 @@ namespace SpaceFightProject
         public override void Execute()
         {
             GameModel.player.SetMoveController();
-            //GameModel.StartGame();
+            GameModel.StartGame();
         }
     }
 }

@@ -20,11 +20,14 @@ namespace SpaceFightProject
         public PreferencesModel PreferencesModel { get; set; }
 
         public Transform gameField;
+        public Transform enemySpawn;
 
         public void LoadView()
         {
             SetBacePreferences();
             GameModel.gameField = gameField;
+            GameModel.enemySpawnField = enemySpawn;
+         
             dispatcher.Dispatch(GlobalEvents.E_InstantiatePlayer);
             dispatcher.Dispatch(GlobalEvents.E_StartGame);
         }

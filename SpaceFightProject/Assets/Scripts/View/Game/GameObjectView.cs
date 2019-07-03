@@ -12,7 +12,7 @@ namespace SpaceFightProject
         public GetDamageDelegate getDamage;
 
         public delegate void DestroyIt();
-        public DestroyIt destroyIt;
+        public event DestroyIt destroyIt;
 
         public float damagePover = 0;
         public Fractions fraction = Fractions.Minor;
@@ -28,7 +28,7 @@ namespace SpaceFightProject
             GameObject.Destroy(gameObject);
         }
 
-        public void GetDamage(float damage)
+        public virtual void GetDamage(float damage)
         {
             if (getDamage(damage))
                 destroyIt();
@@ -37,9 +37,13 @@ namespace SpaceFightProject
         private void OnTriggerEnter2D(Collider2D collision)
         {
             GameObjectView TriggerGameObjectView = collision.GetComponent<GameObjectView>();
-
-            if (TriggerGameObjectView?.fraction != fraction)
-                GetDamage(TriggerGameObjectView.damagePover);
+            Debug.Log("Enter to " + collision + "\nView: " + TriggerGameObjectView);
+            if (TriggerGameObjectView != null)
+            {
+                if (TriggerGameObjectView.fraction != fraction)
+                    GetDamage(TriggerGameObjectView.damagePover);
+            }
+           
         }
     }
 }

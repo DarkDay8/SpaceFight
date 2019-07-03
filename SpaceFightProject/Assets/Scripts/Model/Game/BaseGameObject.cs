@@ -41,6 +41,7 @@ namespace SpaceFightProject
             Speed = speed;
             Pover = pover;
             Fraction = fraction;
+            obj.getDamage = GetDamage;
         }
     }
 }

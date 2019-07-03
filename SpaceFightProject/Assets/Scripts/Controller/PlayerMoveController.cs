@@ -11,7 +11,6 @@ namespace SpaceFightProject
         protected void Start()
         {
             rb = gameObject.GetComponent<Rigidbody2D>();
-            Debug.Log(rb);
         }
         protected void FixedUpdate()
         {
