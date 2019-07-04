@@ -53,9 +53,7 @@ namespace SpaceFightProject
         }
         private void LoadPrefab()
         {
-            Debug.Log(prefab);
             prefab = Resources.Load(prefabLink, typeof(GameObject)) as GameObject;
-            Debug.Log(prefab);
         }
         private void SetBaseParamerers()
         {

@@ -13,10 +13,12 @@ namespace SpaceFightProject
         //private Rigidbody rb;
         private Timer timer;
         private EnemySpawnController spawnController;
+        private PlayerBulletCustomizer playerbulletCustomizer;
 
         public GameController(GameModel game)
         {
             gameModel = game;
+            gameModel.player.shot += PlayerShot;
             spawnController = new EnemySpawnController(gameModel.enemySpawnField);
             EnemySpawnController.addEnemyToList += gameModel.AddEnemy;
         }
@@ -24,12 +26,12 @@ namespace SpaceFightProject
         public void StartGame()
         {
             spawnController.StartSpawn();
+            playerbulletCustomizer = new PlayerBulletCustomizer();
+            playerbulletCustomizer.SetParameters(1, new Vector2(0, 4), 5).SetPlayer(gameModel.player);
         }
-
-        private void timer_Tick(object state)
+        public void PlayerShot()
         {
-            Debug.Log("Tick");
-           
+            playerbulletCustomizer.BulletSpawn(gameModel.gameField);
         }
     }
 }

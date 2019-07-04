@@ -6,14 +6,14 @@ namespace SpaceFightProject
 {
     public class PlayerFireController : MonoBehaviour
     {
-        public System.Action strike;
+        public System.Action shot;
 
         private void FixedUpdate()
         {
             float fire = Input.GetAxis("Fire1");
 
             if (fire != 0)
-                strike();
+                shot();
         }
 
         public void RemoveFireContoller()

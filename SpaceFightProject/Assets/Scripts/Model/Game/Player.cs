@@ -11,6 +11,7 @@ namespace SpaceFightProject
         private PlayerFireController fireController;
 
         public float WeaponReloadTime { get; set; } //sec
+        public event System.Action shot;
 
         #region Constructors
         public Player(GameObjectView obj) : base(obj)
@@ -40,16 +41,15 @@ namespace SpaceFightProject
         public Player SetFireController()
         {
             fireController = Object.gameObject.AddComponent<PlayerFireController>();
-            fireController.strike = Fire;
+            fireController.shot = Fire;
             return this;
         }
         public void Fire()
         {
-            Debug.Log("FIRE!!!");
+            shot();
             fireController.RemoveFireContoller();
             fireController = null;
             TimersManager.SetTimer(this, WeaponReloadTime, () => { SetFireController(); });
         }
-
     }
 }
