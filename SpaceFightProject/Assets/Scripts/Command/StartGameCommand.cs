@@ -12,7 +12,7 @@ namespace SpaceFightProject
 
         public override void Execute()
         {
-            GameModel.player.SetMoveController();
+            GameModel.player.SetMoveController().SetFireController().WeaponReloadTime = 1;
             GameModel.StartGame();
         }
     }

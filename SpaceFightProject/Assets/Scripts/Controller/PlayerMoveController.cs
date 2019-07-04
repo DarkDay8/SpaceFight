@@ -17,7 +17,7 @@ namespace SpaceFightProject
             float moveHorizontal = Input.GetAxis("Horizontal");
             float moveVertical = Input.GetAxis("Vertical");
 
-            Vector3 movement = new Vector3(moveHorizontal, moveVertical);
+            Vector2 movement = new Vector2(moveHorizontal, moveVertical);
 
             rb.AddForce(movement * speed);
         }

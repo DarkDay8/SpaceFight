@@ -10,13 +10,13 @@ namespace SpaceFightProject
     {
         private EnemyCustomizer customizer;
         private Transform spawner;
-        private float minTimeSpawn; //mc
-        private float maxTimeSpawn; //mc
+        private float minTimeSpawn; //sec
+        private float maxTimeSpawn; //sec
         public delegate void AddEnemyToList(BaseGameObject enemy);
         public static event AddEnemyToList addEnemyToList;
 
 
-        public EnemySpawnController(Transform spawner) : this(spawner, 0.3f, 10.0f) { }
+        public EnemySpawnController(Transform spawner) : this(spawner, 0.3f, 2.0f) { }
         public EnemySpawnController(Transform spawner, float minTimeSpawn, float maxTimeSpawn)
         {
             customizer = new EnemyCustomizer();

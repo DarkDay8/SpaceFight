@@ -35,15 +35,14 @@ namespace SpaceFightProject
         }
         public BaseGameObject EnemySpawn(Transform spawn)
         {
-            Debug.Log("Spawn!!");
-            Debug.Log(spawn);
+            float board = 70;
+            float posXRange = ((RectTransform)spawn).rect.width / 2 - board;
             float speed = Random.Range(minSpeed, maxSpeed);
+
             prefab.GetComponent<Rigidbody2D>().gravityScale = speed;
-            Debug.Log("Set Speed");
             GameObject clone = GameObject.Instantiate(prefab, Vector3.zero, 
                 Quaternion.identity, spawn) as GameObject;
-            clone.transform.localPosition = new Vector3(0, 0, 0); //Change position 
-            Debug.Log("Was Spawn");
+            clone.transform.localPosition = new Vector3(Random.Range((-1) * posXRange, posXRange), 0, 0); //Change position 
             return new BaseGameObject(clone.GetComponent<GameObjectView>(), 
                 RandomNumber(minHp, maxHp), 0, Power, Fractions.Enemy);
         }
