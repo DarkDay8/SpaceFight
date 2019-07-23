@@ -9,14 +9,13 @@ namespace SpaceFightProject
     {
         [Inject]
         public GameModel GameModel { get; set; }
+        private string path = "Prefabs/Game/Player/Player";
 
         public override void Execute()
         {
-            Debug.Log("Start Instantiate Player");
             if(GameModel.player == null)
             {
-                Debug.Log("Player == null");
-                Object prefab = Resources.Load("Prefabs/Game/Player/Player", typeof(GameObject));
+                Object prefab = Resources.Load(path, typeof(GameObject));
 
                 if (!prefab)
                 {

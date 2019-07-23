@@ -9,9 +9,13 @@ namespace SpaceFightProject
     {
         private PlayerMoveController moveController;
         private PlayerFireController fireController;
+        public float MaxEnergy { get; set; } = 10;     //cap
+        public float CurrentEnergy { get; set; } = 10; //cap
 
         public float WeaponReloadTime { get; set; } //sec
         public event System.Action shot;
+        public event System.Action<float, float> changeHP;
+        public event System.Action<float, float> changeEnergy;
 
         #region Constructors
         public Player(GameObjectView obj) : base(obj)
@@ -50,6 +54,16 @@ namespace SpaceFightProject
             fireController.RemoveFireContoller();
             fireController = null;
             TimersManager.SetTimer(this, WeaponReloadTime, () => { SetFireController(); });
+        }
+        public override bool GetDamage(float damage)
+        {
+            CurrentHp -= damage;
+            changeHP(CurrentHp, MaxHp);
+            return CurrentHp <= 0 ? true : false;
+        }
+        public void UseEnergy(float value)
+        {
+            changeEnergy(CurrentEnergy, MaxEnergy);
         }
     }
 }

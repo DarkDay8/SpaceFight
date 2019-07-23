@@ -19,22 +19,29 @@ namespace SpaceFightProject
         [Inject]
         public PreferencesModel PreferencesModel { get; set; }
 
-        public Transform gameField;
-        public Transform enemySpawn;
+        [SerializeField]
+        private Transform gameField;
+        [SerializeField]
+        private Transform enemySpawn;
+        [SerializeField]
+        private GameGUIView gui;
+
+        public GameGUIView GUI { get { return gui; } }
 
         public void LoadView()
         {
-            SetBacePreferences();
             GameModel.gameField = gameField;
             GameModel.enemySpawnField = enemySpawn;
          
             dispatcher.Dispatch(GlobalEvents.E_InstantiatePlayer);
+            SetBacePreferences();
             dispatcher.Dispatch(GlobalEvents.E_StartGame);
+
         }
 
         private void SetBacePreferences()
         {
-          
+            gui.SetBacePreferences(GameModel);
         }
  
         public void RemoveView()

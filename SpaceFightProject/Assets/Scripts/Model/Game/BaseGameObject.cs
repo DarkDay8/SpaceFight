@@ -21,7 +21,7 @@ namespace SpaceFightProject
             get { return _fraction; }
             set { _fraction = value; Object.fraction = value; }}
 
-        public bool GetDamage(float damage)
+        public virtual bool GetDamage(float damage)
         {
             CurrentHp -= damage;
             return CurrentHp <= 0 ? true : false;

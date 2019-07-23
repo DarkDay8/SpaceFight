@@ -29,13 +29,16 @@ namespace SpaceFightProject
             mediationBinder.BindView<MainMenuView>().ToMediator<MainMenuMediator>();
             mediationBinder.BindView<MainGameFieldView>().ToMediator<MainGameFieldMediator>();
             mediationBinder.BindView<GameObjectView>().ToMediator<GameObjectMediator>();
+            mediationBinder.BindView<GameGUIView>().ToMediator<GameGUIMediator>();
 
         }
     }
+    #region Mediator classes
     //We can't add template class in MonoBehaviour 
-    //Mediator classes
     public class MainMenuMediator : BaseMediator<MainMenuView> { };
     public class MainGameFieldMediator : BaseMediator<MainGameFieldView> { };
     public class GameObjectMediator : BaseMediator<GameObjectView> { };
+    public class GameGUIMediator : BaseMediator<GameGUIView> { };
+    #endregion
 }
 

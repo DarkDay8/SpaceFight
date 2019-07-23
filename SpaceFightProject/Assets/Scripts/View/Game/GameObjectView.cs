@@ -37,7 +37,6 @@ namespace SpaceFightProject
         private void OnTriggerEnter2D(Collider2D collision)
         {
             GameObjectView TriggerGameObjectView = collision.GetComponent<GameObjectView>();
-            Debug.Log("Enter to " + collision + "\nView: " + TriggerGameObjectView);
             if (TriggerGameObjectView != null)
             {
                 if (TriggerGameObjectView.fraction != fraction)
